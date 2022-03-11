@@ -1,7 +1,6 @@
 <template>
   <component :is="resolveLayout">
     <router-view></router-view>
-    <upgrade-to-pro></upgrade-to-pro>
   </component>
 </template>
 
@@ -10,11 +9,20 @@ import { computed } from '@vue/composition-api'
 import { useRouter } from '@/utils'
 import LayoutBlank from '@/layouts/Blank.vue'
 import LayoutContent from '@/layouts/Content.vue'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     LayoutBlank,
     LayoutContent,
+  },
+
+  created() {
+    this.GET_PUBLICACOES()
+  },
+
+  methods: {
+    ...mapActions(['GET_PUBLICACOES']),
   },
   setup() {
     const { route } = useRouter()
