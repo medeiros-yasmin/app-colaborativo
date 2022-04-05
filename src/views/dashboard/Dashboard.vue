@@ -123,6 +123,7 @@ import DashboardWeeklyOverview from './DashboardWeeklyOverview.vue'
 import DashboardDatatable from './DashboardDatatable.vue'
 
 export default {
+  name: 'Dashboard',
   components: {
     StatisticsCardVertical,
     DashboardCongratulationJohn,

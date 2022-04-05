@@ -9,21 +9,26 @@ import { computed } from '@vue/composition-api'
 import { useRouter } from '@/utils'
 import LayoutBlank from '@/layouts/Blank.vue'
 import LayoutContent from '@/layouts/Content.vue'
-import { mapActions } from 'vuex'
+import getPosts from './composables/getPosts'
 
 export default {
+  name: 'App',
   components: {
     LayoutBlank,
     LayoutContent,
   },
 
+  data() {
+    return {
+      publicacoes: [],
+      database: null,
+    }
+  },
   created() {
-    this.GET_PUBLICACOES()
+    const data = getPosts()
+    console.log(data.posts)
   },
 
-  methods: {
-    ...mapActions(['GET_PUBLICACOES']),
-  },
   setup() {
     const { route } = useRouter()
 
