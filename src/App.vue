@@ -9,7 +9,6 @@ import { computed } from '@vue/composition-api'
 import { useRouter } from '@/utils'
 import LayoutBlank from '@/layouts/Blank.vue'
 import LayoutContent from '@/layouts/Content.vue'
-import getPosts from './composables/getPosts'
 
 export default {
   name: 'App',
@@ -18,15 +17,9 @@ export default {
     LayoutContent,
   },
 
-  created() {
-    const data = getPosts()
-    console.log(data.posts)
-  },
-
   setup() {
     const { route } = useRouter()
 
-    // Comentário extra
     const resolveLayout = computed(() => {
       // Handles initial route
       if (route.value.name === null) return null
