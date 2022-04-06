@@ -26,6 +26,7 @@ export default {
   setup() {
     const { route } = useRouter()
 
+    // Comentário extra
     const resolveLayout = computed(() => {
       // Handles initial route
       if (route.value.name === null) return null
