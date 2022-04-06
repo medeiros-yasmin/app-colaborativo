@@ -18,12 +18,6 @@ export default {
     LayoutContent,
   },
 
-  data() {
-    return {
-      publicacoes: [],
-      database: null,
-    }
-  },
   created() {
     const data = getPosts()
     console.log(data.posts)
